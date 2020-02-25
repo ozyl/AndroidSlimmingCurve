@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"    xmlns:bind="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vmCb"
+            type="cn.okzyl.slimmingcurve.data.entity.CookBookEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="117dp"
+        android:layout_marginStart="@dimen/paddingPageX"
+        android:layout_marginEnd="@dimen/paddingPageX">
+
+        <ImageView
+            android:id="@+id/ivCb"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintDimensionRatio="h,155:117"
+            app:layout_constraintEnd_toStartOf="@+id/gl1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:imgUrl="@{vmCb.cbPicUrl}"
+            bind:placeHolder="@{@drawable/image_place_holder}"
+            bind:radius="@{10}"
+            tools:src="@mipmap/ic_launcher" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.415" />
+
+        <TextView
+            android:id="@+id/tvCbTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{vmCb.cbName}"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/ivCb"
+            app:layout_constraintTop_toTopOf="@+id/ivCb"
+            tools:text="纯素蔬果沙拉" />
+
+        <TextView
+            android:id="@+id/tvCbDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="怎么做营养红豆黑米粥好吃？学做营养红豆黑米粥需要哪些食材"
+            app:layout_constraintBottom_toTopOf="@+id/rvCbTag"
+            app:layout_constraintStart_toStartOf="@+id/tvCbTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvKcal" />
+
+        <TextView
+            android:id="@+id/tvKcal"
+            android:layout_marginTop="2dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvCbTitle"
+            app:layout_constraintStart_toStartOf="@id/tvCbTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="217"
+            android:text="@{String.valueOf(vmCb.cbKcal)}"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            app:layout_constraintStart_toEndOf="@+id/tvKcal"
+            app:layout_constraintTop_toTopOf="@+id/tvKcal"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_height="wrap_content"
+            android:text="Kcal"
+            android:textColor="#666666"
+            android:textSize="12sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCbTag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            tools:itemCount="10"
+            tools:listitem="@layout/layout_home_cb_list_item_tag"
+            app:layout_constraintStart_toStartOf="@+id/tvCbTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

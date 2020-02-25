@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable
+            name="adapter"
+            type="cn.okzyl.slimmingcurve.ui.adapter.HomeModuleAdapter" />
+        <variable
+            name="divider"
+            type="cn.okzyl.slimmingcurve.ui.widget.GridGapItemDecoration" />
+    </data>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="@dimen/paddingPageX"
+        android:layout_marginEnd="@dimen/paddingPageX"
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homeModuleRv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/layout_home_module_item"
+            tools:itemCount="5"
+            app:spanCount="3"
+            tools:spanCount="3"
+            bind:adapter="@{adapter}"
+            bind:divider="@{divider}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+    </LinearLayout>
+</layout>

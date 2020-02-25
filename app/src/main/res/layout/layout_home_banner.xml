@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="bannerListener"
+            type="com.youth.banner.listener.OnBannerListener" />
+        <variable
+            name="bannerEntity"
+            type="cn.okzyl.slimmingcurve.data.entity.HomeBannerEntity" />
+    </data>
+
+    <LinearLayout
+        android:layout_marginTop="13dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/paddingPageX"
+        android:layout_marginEnd="@dimen/paddingPageX"
+        android:layout_height="wrap_content">
+
+        <com.youth.banner.Banner
+            android:id="@+id/homeBanner"
+            app:image_scale_type="fit_xy"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            app:banner_default_image="@drawable/image_place_holder"
+            android:background="@drawable/image_place_holder"
+            bind:banners="@{bannerEntity.bannerList}"
+            bind:bannerClick="@{bannerListener}"
+            />
+
+    </LinearLayout>
+</layout>

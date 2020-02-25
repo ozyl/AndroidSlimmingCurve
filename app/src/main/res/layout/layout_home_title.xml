@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vdTitle"
+            type="String" />
+        <variable
+            name="provider"
+            type="cn.okzyl.slimmingcurve.ui.adapter.provider.HomeTitleProvider" />
+    </data>
+    <FrameLayout
+        android:layout_marginTop="4dp"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingStart="@dimen/paddingPageX"
+        android:paddingEnd="@dimen/paddingPageX"
+        android:onClick="@{provider::click}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:text="@{vdTitle}"
+            tools:text="最新菜谱"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack33"
+            android:textSize="22sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:layout_gravity="center_vertical|end"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="fitXY"
+            android:layout_width="8dp"
+            android:layout_height="14dp"/>
+    </FrameLayout>
+</layout>

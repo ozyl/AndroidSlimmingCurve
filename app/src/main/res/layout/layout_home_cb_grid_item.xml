@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="vmCbName"
+            type="String" />
+        <variable
+            name="vmCbKcal"
+            type="int" />
+        <variable
+            name="vmCbPicUrl"
+            type="String" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ivCb"
+            tools:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintDimensionRatio="h,0.75"
+            android:scaleType="fitXY"
+            android:layout_width="match_parent"
+            bind:radius="@{10}"
+            bind:placeHolder="@{@drawable/image_place_holder}"
+            bind:imgUrl="@{vmCbPicUrl}"
+            android:layout_height="0dp"/>
+        <TextView
+            android:id="@+id/tvCbTitle"
+            app:layout_constraintTop_toBottomOf="@+id/ivCb"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
+            android:text="@{vmCbName}"
+            tools:text="纯素蔬果沙拉"
+            android:textColor="#333333"
+            android:textSize="14sp"/>
+
+
+        <TextView
+            android:id="@+id/tvKcal"
+            app:layout_constraintTop_toBottomOf="@+id/tvCbTitle"
+            app:layout_constraintStart_toStartOf="@id/tvCbTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="217"
+            android:text="@{String.valueOf(vmCbKcal)}"
+            android:textColor="#ffb200"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            app:layout_constraintStart_toEndOf="@+id/tvKcal"
+            app:layout_constraintTop_toTopOf="@+id/tvKcal"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_height="wrap_content"
+            android:text="Kcal"
+            android:textColor="#666666"
+            android:textSize="12sp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
